@@ -3616,7 +3616,7 @@ contain a `%s' construct, so that it can be passed along with FILE to
           (let ((print-circle  bmkp-propertize-bookmark-names-flag)
                 (print-gensym  bmkp-propertize-bookmark-names-flag))
             (if (not (and rem-all-p  (bmkp-sequence-bookmark-p bmk)))
-                (pp bmk (current-buffer))
+                (insert (pp-to-string bmk))
               ;; Remove text properties from bookmark names in the `sequence' entry of sequence bookmark.
               (insert "(\"" (let ((seqbname  (copy-sequence (bookmark-name-from-full-record bmk))))
                               (set-text-properties 0 (length seqbname) () seqbname)
